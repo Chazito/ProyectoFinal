@@ -7,13 +7,13 @@ import java.util.ArrayList;
  */
 public class Hogar {
     
-    ArrayList<Objeto> bañoLista;
-    ArrayList<Objeto> cocinaLista;
-    ArrayList<Objeto> iluminacionLista;
-    ArrayList<Objeto> menajeLista;
-    ArrayList<Objeto> mueblesLista;
-    ArrayList<Objeto> decoracionLista;
-    ArrayList<Objeto> textilLista;
+   private ArrayList<Objeto> bañoLista;
+   private ArrayList<Objeto> cocinaLista;
+   private ArrayList<Objeto> iluminacionLista;
+   private ArrayList<Objeto> menajeLista;
+   private ArrayList<Objeto> mueblesLista;
+   private ArrayList<Objeto> decoracionLista;
+   private ArrayList<Objeto> textilLista;
 
     public Hogar() {
         this.bañoLista = new ArrayList<>();
