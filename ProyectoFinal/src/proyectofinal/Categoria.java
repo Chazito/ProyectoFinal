@@ -26,4 +26,9 @@ public abstract class Categoria {
         
         return 0;
     }
+    //Devuelve una lista de objetos que tengan el codigo ingresado
+    public ArrayList<Objeto> buscarCodigo(int codigo){
+        
+        return null;
+    }
 }

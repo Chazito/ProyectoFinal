@@ -50,4 +50,13 @@ public class Sistema {
             }
         }
     }
+    
+    public ArrayList<Categoria> getListaCategorias(){
+        ArrayList<Categoria> listaTemp = new ArrayList();
+        listaTemp.add(hogar);
+        listaTemp.add(jardin);
+        listaTemp.add(ferreteria);
+        listaTemp.add(electroHogar);
+        return listaTemp;
+    }
 }

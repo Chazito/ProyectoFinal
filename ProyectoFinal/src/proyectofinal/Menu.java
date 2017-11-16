@@ -46,7 +46,7 @@ public class Menu {
    {
        System.out.println("1 - Consulta de producto por codigo");
        System.out.println("2 - Consulta de producto por categoria");
-       System.out.println("2 - Consulta de descuento");
+       System.out.println("3 - Consulta de descuento");
        System.out.println("0 - Volver al Menu Principal");
    }
    public static void mostrarMenuConsultaProducto()

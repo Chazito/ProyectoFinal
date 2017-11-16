@@ -129,5 +129,20 @@ public class Hogar extends Categoria{
         }
         return size;
     }
+    
+    //Devuelve una lista de objetos que tengan el codigo ingresado
+    @Override
+    public ArrayList<Objeto> buscarCodigo(int codigo){
+        ArrayList<Objeto> temp = new ArrayList();
+        for(int i = 0; i < 7; i++){
+            for(int s = 0; s < sizeLista(i);s++){
+                Objeto objeto = getObjeto(i, s);
+                if(codigo == objeto.getCodigo()){
+                    temp.add(objeto);
+                }
+            }
+        }
+        return temp;
+    }
 
 }

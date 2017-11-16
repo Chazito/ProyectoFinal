@@ -83,4 +83,20 @@ public class Lector
         }
         return lista;
     }
+    
+    //Leer string como int
+    public int leerInt(String mensaje){
+        System.out.println(mensaje);
+        int respuesta = 0;
+        while(true){
+            try{
+                respuesta = Integer.parseInt(scanner.nextLine());
+                break;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Valor invalido. Solo puede ingresar numeros.");
+            }
+        }
+        return respuesta;
+    }
 }
