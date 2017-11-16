@@ -10,6 +10,7 @@ package proyectofinal;
  * @author Hachi
  */
 public class Menu {
+
     public static void mostrarMensajeBienvenida()
    {
        System.out.println(" Bienvenido al menu de la tienda.");
@@ -54,5 +55,10 @@ public class Menu {
        System.out.println("0 - Volver");
    }
    
+
+    
+    
+    
+
 }
 
