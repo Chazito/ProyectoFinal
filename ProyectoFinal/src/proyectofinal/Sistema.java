@@ -5,15 +5,18 @@
  */
 package proyectofinal;
 
-/**
- *
- * @author Hachi
- */
-public class Menu {
-    
-    public static void mostrarMensajeBienvenida()
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Sistema {
+    public void guardar()
     {
-       System.out.println(" Bienvenido al sistema de cotizacion online.");
+
     }
     
+    public void cargar ()
+    {
+
+    }
 }
