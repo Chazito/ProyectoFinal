@@ -74,7 +74,7 @@ public class Lector
                 }
                 String nombre = sb.toString();
                 int precio = Integer.parseInt(file.next());
-                System.out.println("" + cat + codigo + nombre + precio);
+                //System.out.println("" + cat + codigo + nombre + precio);
                 Objeto objeto = new Objeto(cat,codigo,nombre,precio);
                 lista.add(objeto);
             }
