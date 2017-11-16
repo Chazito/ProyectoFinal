@@ -56,6 +56,13 @@ public class Hogar {
         if(lista.contains(objeto)){
             return false;
         }
+        if(lista.size()>0){
+            for(int i = 0; i < lista.size(); i++){
+                Objeto check = lista.get(i);
+                if(check.getCodigo()==objeto.getCodigo()) return false;
+            }
+        }
+        
         lista.add(objeto);
         return true;
     }
