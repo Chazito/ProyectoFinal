@@ -5,7 +5,7 @@ import java.util.ArrayList;
  *
  * @author Franco Nuñez
  */
-public class Hogar {
+public class Hogar extends Categoria{
     
    private ArrayList<Objeto> bañoLista;
    private ArrayList<Objeto> cocinaLista;
@@ -26,6 +26,8 @@ public class Hogar {
     }
     
     //Añadir objetos usando esta funcion. Se le entrega el objeto junto con la categoria correspondiente
+    
+    @Override
     public void addObjeto(Objeto objeto, int cat){
         switch(cat){
             case 1:
@@ -52,6 +54,7 @@ public class Hogar {
         }
     }
     
+    @Override
     public boolean addToList(ArrayList<Objeto> lista, Objeto objeto){
         if(lista.contains(objeto)){
             return false;
@@ -67,6 +70,7 @@ public class Hogar {
         return true;
     }
     
+    @Override
     public Objeto getObjeto(int cat, int index){
         Objeto returned = null;
         switch(cat){
@@ -97,6 +101,7 @@ public class Hogar {
         return returned;
     }
     
+    @Override
     public int sizeLista(int cat){
         int size = 0;
         switch(cat){
@@ -124,6 +129,5 @@ public class Hogar {
         }
         return size;
     }
-    
-    
+
 }

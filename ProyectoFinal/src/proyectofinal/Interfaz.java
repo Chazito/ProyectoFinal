@@ -15,7 +15,6 @@ public class Interfaz {
     
     public void iniciar()
     {
-        this.sistema.cargar();
         Menu.mostrarMensajeBienvenida();
     }
 }

@@ -1,6 +1,8 @@
 
 package proyectofinal;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lector
@@ -47,5 +49,29 @@ public class Lector
         }
 
         return opcion;
+    }
+    
+    public ArrayList<Objeto> leerArchivoLista(){
+        ArrayList<Objeto> lista = new ArrayList();
+        Scanner file = null;
+        try{
+           file = new Scanner(new File("Objetos.txt")); 
+        }
+        catch(Exception e){
+            System.out.println("File not found");
+        }
+        if(file != null){
+            while(file.hasNext()){
+                String cat = file.next();
+                int codigo = Integer.parseInt(file.next());
+                String nombre = file.next();
+                int precio = Integer.parseInt(file.next());
+                System.out.println(cat + codigo + nombre + precio);
+                Objeto objeto = new Objeto(cat,codigo,nombre,precio);
+                lista.add(objeto);
+            }
+            file.close();
+        }
+        return lista;
     }
 }
