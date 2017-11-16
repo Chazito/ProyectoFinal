@@ -2,6 +2,7 @@
 package proyectofinal;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -42,7 +43,7 @@ public class Lector
                 }
 
                 continuar = false;
-            } catch (Exception e)
+            } catch (NumberFormatException e)
             {
                 System.out.println("Solo se permiten numeros enteros.");
             }
@@ -55,23 +56,26 @@ public class Lector
         ArrayList<Objeto> lista = new ArrayList();
         Scanner file = null;
         try{
-           file = new Scanner(new File("Objetos.txt")); 
+            file = new Scanner(new File("Memes.txt")); 
+            System.out.println("File found");
         }
-        catch(Exception e){
+        catch(FileNotFoundException e){
             System.out.println("File not found");
         }
         if(file != null){
+            System.out.println(""+file.hasNext());
             while(file.hasNext()){
                 String cat = file.next();
                 int codigo = Integer.parseInt(file.next());
                 String nombre = file.next();
                 int precio = Integer.parseInt(file.next());
-                System.out.println(cat + codigo + nombre + precio);
+                System.out.println("" + cat + codigo + nombre + precio);
                 Objeto objeto = new Objeto(cat,codigo,nombre,precio);
                 lista.add(objeto);
             }
             file.close();
         }
+        System.out.println("Nani");
         return lista;
     }
 }

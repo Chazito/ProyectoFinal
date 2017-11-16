@@ -16,5 +16,10 @@ public class Sistema {
         this.hogar = new Hogar();
     }
     
-    
+    public void cargarArchivo(){
+        Lector lector = new Lector();
+        ArrayList<Objeto> listaTemp = new ArrayList();
+        listaTemp.addAll(lector.leerArchivoLista());
+        
+    }
 }
