@@ -56,18 +56,23 @@ public class Lector
         ArrayList<Objeto> lista = new ArrayList();
         Scanner file = null;
         try{
-            file = new Scanner(new File("Memes.txt")); 
+            file = new Scanner(new File("Objetos.txt")); 
             System.out.println("File found");
         }
         catch(FileNotFoundException e){
             System.out.println("File not found");
         }
         if(file != null){
-            System.out.println(""+file.hasNext());
+            //System.out.println(""+file.hasNext());
             while(file.hasNext()){
                 String cat = file.next();
                 int codigo = Integer.parseInt(file.next());
-                String nombre = file.next();
+                StringBuilder sb = new StringBuilder();
+                while(!file.hasNextInt()){
+                    sb.append(file.next());
+                    sb.append(" ");
+                }
+                String nombre = sb.toString();
                 int precio = Integer.parseInt(file.next());
                 System.out.println("" + cat + codigo + nombre + precio);
                 Objeto objeto = new Objeto(cat,codigo,nombre,precio);
@@ -75,7 +80,6 @@ public class Lector
             }
             file.close();
         }
-        System.out.println("Nani");
         return lista;
     }
 }

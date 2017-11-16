@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Franco Nuñez
  */
-public class Jardin {
+public class Jardin extends Categoria{
    private ArrayList<Objeto> plantasLista;
    private ArrayList<Objeto> fertilizantesLista;
    private ArrayList<Objeto> riegoLista;
@@ -31,6 +31,7 @@ public class Jardin {
     }
     
     //Añadir objetos usando esta funcion. Se le entrega el objeto junto con la categoria correspondiente
+    @Override
     public void addObjeto(Objeto objeto, int cat){
         switch(cat){
             case 1:
@@ -56,7 +57,7 @@ public class Jardin {
                 break;
         }
     }
-    
+    @Override
     public boolean addToList(ArrayList<Objeto> lista, Objeto objeto){
         if(lista.contains(objeto)){
             return false;
@@ -71,7 +72,7 @@ public class Jardin {
         lista.add(objeto);
         return true;
     }
-    
+    @Override
     public Objeto getObjeto(int cat, int index){
         Objeto returned = null;
         switch(cat){
@@ -101,7 +102,7 @@ public class Jardin {
         }
         return returned;
     }
-    
+    @Override
     public int sizeLista(int cat){
         int size = 0;
         switch(cat){

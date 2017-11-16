@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author Franco Nuñez
  */
-public class Ferreteria {
+public class Ferreteria extends Categoria{
    private ArrayList<Objeto> pinturaLista;
    private ArrayList<Objeto> electricidadLista;
    private ArrayList<Objeto> gasfiteriaLista;
@@ -26,6 +26,7 @@ public class Ferreteria {
     }
     
     //Añadir objetos usando esta funcion. Se le entrega el objeto junto con la categoria correspondiente
+    @Override
     public void addObjeto(Objeto objeto, int cat){
         switch(cat){
             case 1:
@@ -49,6 +50,7 @@ public class Ferreteria {
         }
     }
     
+    @Override
     public boolean addToList(ArrayList<Objeto> lista, Objeto objeto){
         if(lista.contains(objeto)){
             return false;
@@ -64,6 +66,7 @@ public class Ferreteria {
         return true;
     }
     
+    @Override
     public Objeto getObjeto(int cat, int index){
         Objeto returned = null;
         switch(cat){
@@ -91,6 +94,7 @@ public class Ferreteria {
         return returned;
     }
     
+    @Override
     public int sizeLista(int cat){
         int size = 0;
         switch(cat){
