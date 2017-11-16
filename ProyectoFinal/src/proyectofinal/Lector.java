@@ -77,7 +77,16 @@ public class Lector
                 int precio = Integer.parseInt(file.next());
                 //System.out.println("" + cat + codigo + nombre + precio);
                 Objeto objeto = new Objeto(cat,codigo,nombre,precio);
-                lista.add(objeto);
+                int checker = 0;
+                for(int i = 0; i < lista.size(); i++){
+                    Objeto check = lista.get(i);
+                    if(check.getCodigo() == objeto.getCodigo()){
+                        //System.out.println("Codigo duplicado: " + check.getCodigo() + " - " + check.getNombre() + " / " + objeto.getCodigo() + " - " + objeto.getNombre());
+                        checker = 1;
+                    }
+                }
+                if(checker == 0) lista.add(objeto);
+                //lista.add(objeto);
             }
             file.close();
         }
