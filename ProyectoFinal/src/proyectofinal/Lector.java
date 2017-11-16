@@ -52,6 +52,7 @@ public class Lector
         return opcion;
     }
     
+    //Lee el archivo de objetos
     public ArrayList<Objeto> leerArchivoLista(){
         ArrayList<Objeto> lista = new ArrayList();
         Scanner file = null;

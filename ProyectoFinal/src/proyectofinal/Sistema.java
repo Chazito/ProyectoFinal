@@ -19,6 +19,7 @@ public class Sistema {
         this.ferreteria = new Ferreteria();
     }
     
+    //Carga el archivo de texto y automaticamente lo ordena. (.txt debe ser UTF-8)
     public void cargarArchivo(){
         Lector lector = new Lector();
         ArrayList<Objeto> listaTemp = new ArrayList();
@@ -26,6 +27,7 @@ public class Sistema {
         sortToCat(listaTemp);
     }
     
+    //Toma una lista de objetos desordenada y pasa los objetos a las categorias disponibles
     public void sortToCat(ArrayList<Objeto> lista){
         for(int i = 0; i < lista.size(); i++){
             Objeto temp = lista.get(i);
