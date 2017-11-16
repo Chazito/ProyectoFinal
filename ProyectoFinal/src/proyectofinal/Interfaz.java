@@ -93,50 +93,71 @@ public class Interfaz {
             ArrayList<Categoria> listaTemp = sistema.getListaCategorias();
             switch(sub){
                 case 1:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
                     break;
                 case 2:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
                     break;
                 case 3:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
                     break;
                 case 4:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
                     break;
                 case 5:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
                     break;
                 case 6:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
                     break;
                 case 7:
-                    for(int i = 0; i < listaTemp.get(0).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(0).getObjeto(sub, i);
+                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                        System.out.println("No existen productos disponibles. ");
+                    }
+                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
                         System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
                         listaObjetosTemporal.add(objTemp);
                     }
