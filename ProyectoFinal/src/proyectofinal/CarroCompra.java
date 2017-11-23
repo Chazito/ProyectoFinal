@@ -35,5 +35,6 @@ public class CarroCompra implements Serializable{
     public Objeto remove(int index) {
         return carroCompras.remove(index);
     }
+    // DESDE EL CARRO DE COMPRAS AGREGAR OBJETOS A LA COTIZACION, LA CUAL SE GUARDARA EN EL ARRAY. 
     
 }
