@@ -8,6 +8,7 @@ public abstract class Categoria {
     public Categoria() {
     }
     
+    //public void addObjeto(Objeto objeto, SubCategoria categoria)
     public void addObjeto(Objeto objeto, int cat){
         System.out.println("To be Override");
     }

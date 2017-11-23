@@ -14,6 +14,19 @@ public class Ferreteria extends Categoria{
    private ArrayList<Objeto> herramientasLista;
    private ArrayList<Objeto> maquinariaLista;
    private ArrayList<Objeto> construccionLista;
+   
+//   private HashMap<SubCategoria, ArrayList<Objeto>> productos;
+//   
+//   public void addObjeto(Objeto objeto, SubCategoria sc)
+//   {
+        //para obtener todos las claves
+        //Set<SubCategoria> scs = this.productos.keySet();
+   
+   
+//       ArrayList<Objeto> objetos = this.productos.get(sc);
+//       objetos.add(objeto);
+//   }
+   
 
     public Ferreteria() 
     {
