@@ -5,37 +5,47 @@
  */
 package proyectofinal;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Hachi
  */
-public class Cotizacion 
+public class Cotizacion implements Serializable
 {
     // ARRAY DE COTIZACIONES
-     private ArrayList<Cotizacion> cotizaciones;
-
-    public Cotizacion()
+    private ArrayList<Objeto> carroCompras;
+    private String codigo;
+    private String fecha;
+    public Cotizacion (String codigo, String fecha)
     {
-        this.cotizaciones = new ArrayList<>();
+        this.carroCompras = new ArrayList<>();
+        this.codigo = codigo;
+        this.fecha = fecha;
     }
 
     public int size() {
-        return cotizaciones.size();
+        return carroCompras.size();
     }
 
-    public Cotizacion get(int index) 
-    {
-        return cotizaciones.get(index);
+    public Objeto get(int index) {
+        return carroCompras.get(index);
     }
 
-    public boolean add(Cotizacion e) {
-        return cotizaciones.add(e);
+    public void add(int index, Objeto element) {
+        carroCompras.add(index, element);
     }
 
-    public Cotizacion remove(int index) {
-        return cotizaciones.remove(index);
+    public Objeto remove(int index) {
+        return carroCompras.remove(index);
     }
-     
+    
+    public String getCodigo(){
+        return this.codigo;
+    }
+    
+    public String getFecha(){
+        return this.fecha;
+    }
 }

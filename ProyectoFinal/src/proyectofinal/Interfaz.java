@@ -9,17 +9,21 @@ public class Interfaz {
     private Sistema sistema;
     private Lector lector;
     private ArrayList<Objeto> listaObjetosTemporal;
+    CarroCompra carrito;
 
     public Interfaz()
     {
         this.sistema = new Sistema();
         this.lector =  new Lector();
         this.listaObjetosTemporal = new ArrayList();
+        this.carrito = new CarroCompra();
     }
     
     public void iniciar()
     {
         sistema.cargarArchivo();
+        sistema.cargarCotizaciones();
+        
         while(true){
             Menu.mostrarMensajeBienvenida();
             Menu.mostrarMenuPrincipal();
@@ -71,9 +75,15 @@ public class Interfaz {
                 int precio = objeto.getPrecio();
                 System.out.println(""+ cat + " - " + cod + " - " + nom + " - " + precio);
             }
+            System.out.println("¿Desea agregar el producto al carrito?");
+            int op = lector.leerOpcion("1. Si   2. No\n", 1, 2);
+            if(op == 1){
+                carrito.add(listaObjetosTemporal.get(0));
+                System.out.println("Producto agregado.");
+            }
         }
         else{
-            System.out.println("No existen objetos con ese codigo");
+            System.out.println("No existen productos con ese codigo");
         }
     }
     
@@ -91,78 +101,24 @@ public class Interfaz {
                 sub = lector.leerOpcion("Ingrese el indice de la subcategoria deseada: ", 1, 6);
             }
             ArrayList<Categoria> listaTemp = sistema.getListaCategorias();
-            switch(sub){
-                case 1:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
-                case 2:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
-                case 3:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
-                case 4:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
-                case 5:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
-                case 6:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
-                case 7:
-                    if(listaTemp.get(cat-1).sizeLista(sub)==0){
-                        System.out.println("No existen productos disponibles. ");
-                    }
-                    for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
-                        Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
-                        System.out.println("-   " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
-                        listaObjetosTemporal.add(objTemp);
-                    }
-                    break;
+            if(listaTemp.get(cat-1).sizeLista(sub)==0){
+                System.out.println("No existen productos disponibles. ");
             }
+            for(int i = 0; i < listaTemp.get(cat-1).sizeLista(sub); i++){
+                Objeto objTemp = listaTemp.get(cat-1).getObjeto(sub, i);
+                System.out.println("-   " + (i+1) + ". " + objTemp.getCodigo() + " - " + objTemp.getNombre() + " - " + objTemp.getPrecio());
+                listaObjetosTemporal.add(objTemp);
+                
+            }
+            int op = 0;
+            do{
+                op = lector.leerOpcion("Ingrese el indice del producto a agregar al carro de compras. Ingrese 0 para guardar y volver.", 0, listaObjetosTemporal.size());
+                if(op != 0){
+                    Objeto e = listaObjetosTemporal.get(op-1);
+                    carrito.add(e);
+                    System.out.println("Se añadio el producto: " + e.getNombre() + " - Precio: " + e.getPrecio());
+                }
+            }while(op != 0);
         }
     }
 }

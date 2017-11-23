@@ -28,8 +28,8 @@ public class CarroCompra implements Serializable{
         return carroCompras.get(index);
     }
 
-    public void add(int index, Objeto element) {
-        carroCompras.add(index, element);
+    public void add(Objeto element) {
+        carroCompras.add(element);
     }
 
     public Objeto remove(int index) {
