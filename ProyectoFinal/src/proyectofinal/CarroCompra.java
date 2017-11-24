@@ -7,7 +7,6 @@ package proyectofinal;
 
 import java.util.ArrayList;
 import java.io.Serializable;
-import java.util.Calendar;
 
 /**
  *
@@ -37,4 +36,12 @@ public class CarroCompra implements Serializable{
     }
     // DESDE EL CARRO DE COMPRAS AGREGAR OBJETOS A LA COTIZACION, LA CUAL SE GUARDARA EN EL ARRAY. 
     
+    public int precioTotal (ArrayList<Objeto> compra){
+        int precio = 0;
+        for (int i = 0; i < compra.size(); i++)
+        {
+            precio += compra.get(i).getPrecio();
+        }
+        return precio;
+    }
 }
