@@ -25,6 +25,10 @@ public class Cotizacion implements Serializable
         this.fecha = fecha;
     }
 
+    public ArrayList<Objeto> getCarroCompras() {
+        return carroCompras;
+    }
+    
     public int size() {
         return carroCompras.size();
     }

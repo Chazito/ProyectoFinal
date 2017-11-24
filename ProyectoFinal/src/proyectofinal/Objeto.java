@@ -1,11 +1,13 @@
 
 package proyectofinal;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Hachi
  */
-public class Objeto 
+public class Objeto implements Serializable
 {
     String categoria;
     int codigo;

@@ -105,12 +105,67 @@ public class Interfaz {
             String fecha = sdf.format(date);
             Cotizacion cotizacion = new Cotizacion(codigo, fecha);
             for(int i = 0; i < this.carrito.size(); i++){
-                
+                cotizacion.add(this.carrito.get(i));
             }
+            this.sistema.addCotizacion(cotizacion);
+            System.out.println("Su codigo de cotizacion es: " + cotizacion.getCodigo() + ". Esta cotizacion es valida por 7 dias.");
+            this.sistema.guardarCotizaciones();
         }
     }
     
     private void pagarCotizacionPrevia(){
+        if(this.sistema.sizeCotizacion() > 0){
+            String codigo = lector.leerLinea("Ingrese el codigo de la cotizacion a´pagar: ");
+            Cotizacion pagar;
+            for(int i = 0; i < this.sistema.sizeCotizacion(); i++){
+                Cotizacion checker = this.sistema.getCotizacion(i);
+                if(checker.getCodigo().equals(codigo)){
+                    pagar = checker;
+                    System.out.println(""+pagar.getCodigo()+ " " + pagar.getFecha());
+                    System.out.println("Esta cotizacion contiene: ");
+                    for(int a = 0; a < pagar.size(); a++){
+                        System.out.println("" + pagar.get(a).getNombre() + " - Precio normal: " + pagar.get(a).getPrecio());
+                    }
+                    System.out.println("Escoja metodo de pago: ");
+                    Menu.mostrarMenuFormaDePago();
+                    int op = lector.leerOpcion("", 0, 4);
+                    float desc = (float) 0.1;
+                    switch(op){
+                        case 0:
+                            break;
+                        case 1:
+                            pagar(0, pagar.getCarroCompras());
+                            break;
+                        case 2:
+                            pagar(1, pagar.getCarroCompras());
+                            break;
+                        case 3:
+                            pagar(2, pagar.getCarroCompras());
+                            break;
+                        case 4:
+                            pagar(3, pagar.getCarroCompras());
+                            break;
+                    }
+                    break;
+                }
+                else{
+                    System.out.println("Cotizacion no encontrada.");
+                }
+            }
+            
+        }
+        else{
+            System.out.println("No existen cotizaciones guardadas en el sistema.");
+        }
+    }
+    
+    private void pagar(int formaDePago, ArrayList<Objeto> objetos){
+        ArrayList<Objeto> listaBoleta = new ArrayList();
+        for(int i = 0; i < objetos.size(); i++){
+            Objeto origin = objetos.get(i);
+            Objeto copy = new Objeto(origin.getCategoria(), origin.getCodigo(), origin.getNombre(), origin.getPrecio());
+            listaBoleta.add(copy);
+        }
         
     }
     

@@ -7,7 +7,7 @@
 1.7 654789 Textil 100000
 2.1 765234 Calefaccion 200000
 2.2 867485 Ventilacion 130000
-2.3 908123 AireAcondicionado 200000
+2.3 908123 Aire Acondicionado 200000
 2.4 042315 Electrodomesticos 150000
 2.5 245098 Electronica Y Computacion 125000
 2.6 328923 Linea Blanca 90000
