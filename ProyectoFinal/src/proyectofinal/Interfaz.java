@@ -1,7 +1,11 @@
 
 package proyectofinal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class Interfaz {
@@ -35,6 +39,18 @@ public class Interfaz {
                     System.exit(0);;
                     break;
                 case 1:
+                    Menu.mostrarMenuCotizacion();
+                    op2 = lector.leerOpcion("Ingrese la opcion deseada: ", 0, 2);
+                    switch(op2){
+                        case 0:
+                            break;
+                        case 1:
+                            generarCotizacion();
+                            break;
+                        case 2:
+                            pagarCotizacionPrevia();
+                            break;
+                    }
                     break;
                 case 2:
                     break;
@@ -56,6 +72,46 @@ public class Interfaz {
                     break;
             }
         }
+    }
+    
+    private void generarCotizacion(){
+        if(this.carrito.size() > 0){
+            int check = 1;
+            String codigo = null;
+            do{
+                Random rn = new Random(System.currentTimeMillis());
+                StringBuilder str = new StringBuilder();
+                for(int i = 0; i < 10; i++){
+                    str.append(rn.nextInt(10));
+                }
+                codigo = str.toString();
+                if(sistema.sizeCotizacion() > 0){
+                    for(int i = 0; i < sistema.sizeCotizacion(); i++){
+                        Cotizacion checker = sistema.getCotizacion(i);
+                        if(checker.getCodigo().equals(codigo)){
+                            check = 1;
+                        }
+                        else{
+                            check = 0;
+                        }
+                    }
+                }
+                else{
+                    check = 0;
+                }
+            } while(check == 1);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            String fecha = sdf.format(date);
+            Cotizacion cotizacion = new Cotizacion(codigo, fecha);
+            for(int i = 0; i < this.carrito.size(); i++){
+                
+            }
+        }
+    }
+    
+    private void pagarCotizacionPrevia(){
+        
     }
     
     private void buscarPorCodigo(){
