@@ -41,7 +41,8 @@ public class Interfaz {
             int op3 = 0;
             switch(op1){
                 case 0:
-                    System.exit(0);;
+                    sistema.guardarCotizaciones();
+                    System.exit(0);
                     break;
                 case 1:
                     Menu.mostrarMenuCotizacion();
@@ -78,7 +79,9 @@ public class Interfaz {
                     }
                     break;
             }
+            
         }
+        
     }
     
     private void generarCotizacion(){
@@ -215,6 +218,7 @@ public class Interfaz {
             Objeto origin = objetos.get(i);
             Objeto copy = new Objeto(origin.getCategoria(), origin.getCodigo(), origin.getNombre(), origin.getPrecio());
             copy.setPrecio(descuento.aplicarDescuento(formaDePago,copy.getCategoria(), copy.getPrecio()));
+            copy.setNombre(descuento.aplicarDescuentoNombre(formaDePago, copy.getCategoria(), copy.getNombre()));
             boleta.add(copy); 
         }
         System.out.println("Boleta de Compra");
@@ -317,7 +321,7 @@ public class Interfaz {
                     cal1.setTime(fromDate);
                     Calendar cal2 = cal1;
                     cal2.add(Calendar.DATE, 7);
-                    if(cal1.compareTo(cal2) != -1)
+                    if(cal1.compareTo(cal2) > 0)
                     {
                         sistema.removeCotizacion(i);
                     }
