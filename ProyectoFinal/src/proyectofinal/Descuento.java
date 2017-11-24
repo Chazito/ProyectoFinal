@@ -298,5 +298,29 @@ public class Descuento
             }
         }
         return precioNuevo;
-    }       
+    }      
+    
+    public String aplicarDescuentoNombre(int tipoDePago, String categoria, String nombre){
+        StringBuilder sb = new StringBuilder();
+        sb.append(nombre);
+        for(int i = 0; i < descuentosCategoria.size(); i++){
+            if(categoria.equals(descuentosCategoria.get(i))){
+                if(tipoDePago == descuentosTipo.get(i)){
+                    switch(tipoDePago){
+                        case 0:
+                            sb.append(" (10% descuento)");
+                            break;
+                        case 2:
+                            sb.append(" (15% descuento)");
+                            break;
+                        case 3:
+                            sb.append(" (20% descuento)");
+                            break;
+                    }
+                }
+            }
+        }
+        String nombreNuevo = sb.toString();
+        return nombreNuevo;
+    }
 }
