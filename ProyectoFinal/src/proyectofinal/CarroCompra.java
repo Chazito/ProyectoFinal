@@ -18,7 +18,15 @@ public class CarroCompra implements Serializable{
     {
         this.carroCompras = new ArrayList<>();
     }
+    
+    public ArrayList<Objeto> getCarroCompras() {
+        return carroCompras;
+    }
 
+    public void clearCarro(){
+        carroCompras.clear();
+    }
+    
     public int size() {
         return carroCompras.size();
     }

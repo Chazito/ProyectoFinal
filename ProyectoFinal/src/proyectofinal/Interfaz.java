@@ -55,6 +55,7 @@ public class Interfaz {
                     }
                     break;
                 case 2:
+                    pagarDirecto();
                     break;
                 case 3:
                     Menu.mostrarMenuConsultas();
@@ -113,6 +114,38 @@ public class Interfaz {
             this.sistema.addCotizacion(cotizacion);
             System.out.println("Su codigo de cotizacion es: " + cotizacion.getCodigo() + ". Esta cotizacion es valida por 7 dias.");
             this.sistema.guardarCotizaciones();
+            carrito.clearCarro();
+        }
+    }
+    
+    private void pagarDirecto(){
+        if(carrito.size()>0){
+            System.out.println("Ingrese forma de pago: ");
+            Menu.mostrarMenuFormaDePago();
+            int op = lector.leerOpcion("", 0, 4);
+            switch(op){
+                case 0:
+                    break;
+                case 1:
+                    pagar(0, carrito.getCarroCompras(), false, "");
+                    carrito.clearCarro();
+                    break;
+                case 2:
+                    pagar(1, carrito.getCarroCompras(), false, "");
+                    carrito.clearCarro();
+                    break;
+                case 3:
+                    pagar(2, carrito.getCarroCompras(), false, "");
+                    carrito.clearCarro();
+                    break;
+                case 4:
+                    pagar(3, carrito.getCarroCompras(), false, "");
+                    carrito.clearCarro();
+                    break;
+            }
+        }
+        else{
+            System.out.println("No hay productos en el carro.");
         }
     }
     
@@ -132,7 +165,6 @@ public class Interfaz {
                     System.out.println("Escoja metodo de pago: ");
                     Menu.mostrarMenuFormaDePago();
                     int op = lector.leerOpcion("", 0, 4);
-                    float desc = (float) 0.1;
                     switch(op){
                         case 0:
                             break;
