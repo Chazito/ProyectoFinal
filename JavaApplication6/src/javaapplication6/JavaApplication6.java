@@ -6,6 +6,7 @@
 package javaapplication6;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -17,18 +18,9 @@ public class JavaApplication6 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Mme> momos = new ArrayList();
-        ArrayList<Mme> memes = new ArrayList();
-        Mme meme = new Mme();
-        meme.meme = "Chao no vimoh";
-        meme.ja = 3;
-        momos.add(meme);
-        memes = (ArrayList<Mme>) momos.clone();
-        Mme newMeme = memes.get(0);
-        //newMeme.meme = "Memazo";
-        System.out.println("" + momos.get(0).meme + " - " + momos.get(0).meme);
-        System.out.println("" + momos.get(0).ja + " - " + momos.get(0).ja);
-        
+        Calendar cal = Calendar.getInstance();
+        int day = cal.get(Calendar.DAY_OF_WEEK);
+        System.out.println(""+day+ " - " + Calendar.SUNDAY);
     }
     
 }

@@ -1,18 +1,10 @@
-- Generar codigo aleatorio para las cotizaciones
-- Traspasar los objetos del carro a una cotizacion
-- Consultar descuentos
 - Compra directa
-- Menu de cotizaciones
--- Canjear cotizacion (... y pagarla)
--- Cancelar Cotizacion (?)
-
-
 
 Requerimientos basicos pedidos por el encargo
 - Cargar productos de la tienda (Listo)
 - Consultar productos por categoria y codigo (Listo)
-- Generar una cotizacion (En desarrollo)
-- Efectuar compra por cotizacion (Por hacer)
+- Generar una cotizacion (Listo)
+- Efectuar compra por cotizacion (Listo)
 - Efectuar compra directa del carro (Por hacer)
-- Pagar una compra por los medios permitidos, aplicar descuentos y generar boleta (Por hacer)
-- Consultar descuentos (Por hacer)
+- Pagar una compra por los medios permitidos, aplicar descuentos y generar boleta (50% completada)
+- Consultar descuentos (Listo)

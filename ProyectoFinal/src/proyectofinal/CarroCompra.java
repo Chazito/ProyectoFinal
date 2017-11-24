@@ -36,11 +36,11 @@ public class CarroCompra implements Serializable{
     }
     // DESDE EL CARRO DE COMPRAS AGREGAR OBJETOS A LA COTIZACION, LA CUAL SE GUARDARA EN EL ARRAY. 
     
-    public int precioTotal (ArrayList<Objeto> compra){
+    public int precioTotal (){
         int precio = 0;
-        for (int i = 0; i < compra.size(); i++)
+        for (int i = 0; i < carroCompras.size(); i++)
         {
-            precio += compra.get(i).getPrecio();
+            precio += carroCompras.get(i).getPrecio();
         }
         return precio;
     }

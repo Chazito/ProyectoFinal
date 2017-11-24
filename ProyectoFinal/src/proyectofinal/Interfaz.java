@@ -12,6 +12,7 @@ public class Interfaz {
 
     private Sistema sistema;
     private Lector lector;
+    private Descuento descuento;
     private ArrayList<Objeto> listaObjetosTemporal;
     CarroCompra carrito;
 
@@ -21,13 +22,14 @@ public class Interfaz {
         this.lector =  new Lector();
         this.listaObjetosTemporal = new ArrayList();
         this.carrito = new CarroCompra();
+        this.descuento = new Descuento();
     }
     
     public void iniciar()
     {
         sistema.cargarArchivo();
         sistema.cargarCotizaciones();
-        
+        descuento.crearListaDescuentos();
         while(true){
             Menu.mostrarMensajeBienvenida();
             Menu.mostrarMenuPrincipal();
@@ -67,6 +69,7 @@ public class Interfaz {
                             buscarPorCategoria();
                             break;
                         case 3:
+                            descuento.mostrarDescuentos();
                             break;
                     }
                     break;
@@ -134,16 +137,20 @@ public class Interfaz {
                         case 0:
                             break;
                         case 1:
-                            pagar(0, pagar.getCarroCompras());
+                            pagar(0, pagar.getCarroCompras(), true, codigo);
+                            sistema.removeCotizacion(i);
                             break;
                         case 2:
-                            pagar(1, pagar.getCarroCompras());
+                            pagar(1, pagar.getCarroCompras(), true, codigo);
+                            sistema.removeCotizacion(i);
                             break;
                         case 3:
-                            pagar(2, pagar.getCarroCompras());
+                            pagar(2, pagar.getCarroCompras(), true, codigo);
+                            sistema.removeCotizacion(i);
                             break;
                         case 4:
-                            pagar(3, pagar.getCarroCompras());
+                            pagar(3, pagar.getCarroCompras(), true, codigo);
+                            sistema.removeCotizacion(i);
                             break;
                     }
                     break;
@@ -159,14 +166,36 @@ public class Interfaz {
         }
     }
     
-    private void pagar(int formaDePago, ArrayList<Objeto> objetos){
-        ArrayList<Objeto> listaBoleta = new ArrayList();
+    private void pagar(int formaDePago, ArrayList<Objeto> objetos, boolean isCot, String codigo){
+        CarroCompra boleta = new CarroCompra();
         for(int i = 0; i < objetos.size(); i++){
             Objeto origin = objetos.get(i);
             Objeto copy = new Objeto(origin.getCategoria(), origin.getCodigo(), origin.getNombre(), origin.getPrecio());
-            listaBoleta.add(copy);
+            copy.setPrecio(descuento.aplicarDescuento(formaDePago,copy.getCategoria(), copy.getPrecio()));
+            boleta.add(copy); 
         }
-        
+        System.out.println("Boleta de Compra");
+        if(isCot){
+            System.out.println("Codigo de Cotizacion: " + codigo);
+        }
+        for(int i = 0; i < boleta.size(); i++){
+            System.out.println("- " + boleta.get(i).getNombre() + "                         " + boleta.get(i).getPrecio());
+        }
+        System.out.println("Total:                                          " + boleta.precioTotal());
+        switch(formaDePago){
+            case 0:
+                System.out.println("Paga con: efectivo.");
+                break;
+            case 1:
+                System.out.println("Paga con: cheque.");
+                break;
+            case 2:
+                System.out.println("Paga con: tarjeta bancaria.");
+                break;
+            case 3:
+                System.out.println("Paga con: tarjeta de tienda.");
+                break;
+        }
     }
     
     private void buscarPorCodigo(){
