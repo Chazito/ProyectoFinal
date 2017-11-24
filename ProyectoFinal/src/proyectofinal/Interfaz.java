@@ -1,6 +1,7 @@
 
 package proyectofinal;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
@@ -30,6 +31,8 @@ public class Interfaz {
         sistema.cargarArchivo();
         sistema.cargarCotizaciones();
         descuento.crearListaDescuentos();
+        removerCotizacionVieja();
+        
         while(true){
             Menu.mostrarMensajeBienvenida();
             Menu.mostrarMenuPrincipal();
@@ -291,6 +294,31 @@ public class Interfaz {
                     System.out.println("Se añadio el producto: " + e.getNombre() + " - Precio: " + e.getPrecio());
                 }
             }while(op != 0);
+        }
+    }
+
+    private void removerCotizacionVieja() {
+        if(sistema.sizeCotizacion() > 0){
+            for(int i = 0; i < sistema.sizeCotizacion(); i++)
+            {
+                try
+                {
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fromDate = sdf.parse(sistema.getCotizacion(i).getFecha());
+                    Calendar cal1 = Calendar.getInstance();
+                    cal1.setTime(fromDate);
+                    Calendar cal2 = cal1;
+                    cal2.add(Calendar.DATE, 7);
+                    if(cal1.compareTo(cal2) != -1)
+                    {
+                        sistema.removeCotizacion(i);
+                    }
+                }
+                catch (ParseException ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
 }
