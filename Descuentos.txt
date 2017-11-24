@@ -1,5 +1,0 @@
-* DESCUENTOS SOLAMENTE POR SUBCATEGORIA EN EL MOMENTO DE PAGAR *
-
-- Pago en Efectivo -> 10%
-- Pago con Tarjeta de Credito Bancaria -> 15%
-- Pago con Tarjeta de Credito de la Tienda -> 20%

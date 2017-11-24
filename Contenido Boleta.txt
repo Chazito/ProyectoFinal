@@ -1,7 +1,0 @@
-*BOLETA*
-
-
-- Numero cotizacion (En caso de pagar cotizacion)
-- Metodo de pago utilizado
-- Lista de Objetos con precio.
-- Precio Total.
