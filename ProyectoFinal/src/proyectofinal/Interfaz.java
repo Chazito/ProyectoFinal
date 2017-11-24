@@ -99,13 +99,17 @@ public class Interfaz {
                             check = 1;
                         }
                         else{
+                            
                             check = 0;
                         }
                     }
                 }
-                else{
+                else
+                {
+                    
                     check = 0;
                 }
+            
             } while(check == 1);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
@@ -118,6 +122,10 @@ public class Interfaz {
             System.out.println("Su codigo de cotizacion es: " + cotizacion.getCodigo() + ". Esta cotizacion es valida por 7 dias.");
             this.sistema.guardarCotizaciones();
             carrito.clearCarro();
+        }
+        else
+        {
+            System.out.println("No hay productos en el carro.");
         }
     }
     
