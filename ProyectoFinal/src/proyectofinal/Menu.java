@@ -36,10 +36,10 @@ public class Menu {
    }
    public static void mostrarMenuFormaDePago()
    {
-       System.out.println("1 - Efectivo");
+       System.out.println("1 - Efectivo (10% de Descuento)");
        System.out.println("2 - Cheque");
-       System.out.println("3 - Tarjeta de Credito Bancaria");
-       System.out.println("4 - Tarjeta de Credito de la tienda");
+       System.out.println("3 - Tarjeta de Credito Bancaria (15% de Descuento)");
+       System.out.println("4 - Tarjeta de Credito de la tienda (20% de Descuento)");
        System.out.println("0 - Volver");
    }
    public static void mostrarMenuConsultas()
